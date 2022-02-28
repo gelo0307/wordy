@@ -1,0 +1,31 @@
+<!doctype html>
+<html ng-app="wordy">
+<head>
+    <title ng-bind-template="Wordy - {{pageTitle}}">Wordy</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
+
+    <script src="/js/services/client.js"></script>
+    <script src="/js/services/sound_manager.js"></script>
+    <script src="/js/services/d3.js"></script>
+
+    <script src="/js/app.js"></script>
+
+    <script src="/js/controllers/auth.js"></script>
+    <script src="/js/controllers/lobby.js"></script>
+    <script src="/js/controllers/chat.js"></script>
+    <script src="/js/controllers/game.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/css/deps/compiled.inuit.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+</head>
+<body>
+    <div class=wrapper>
+        <span ng-hide="connected">Connecting&hellip;</span>
+        <div ng-view>
+        </div>
+    </div>
+</body>
+</html>

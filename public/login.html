@@ -1,0 +1,21 @@
+<h2>Please Log in</h2>
+
+<form ng-submit="login()">
+    <ul class=form-fields>
+        <li>
+            <label for=username>Username:</label>
+            <input type=text ng-model="user.username" required class="text-input" />
+        </li>
+
+        <li>
+            <label for=password>Password:</label>
+            <input type=password ng-model="user.password" required class="text-input" />
+        </li>
+
+        <li>
+            <input type=submit value="Log in" />
+        </li>
+    </ul>
+</form>
+
+<p><a href="" ng-click="doRegister()">No account? Register instead. </a></p>

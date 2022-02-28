@@ -1,0 +1,44 @@
+<div ng-show="game" class=gw>
+    <h1>
+        Game #{{game.id}}
+        Players: {{players.length}}/{{game.maxPlayers}}
+        <span ng-hide="game.finished">Tiles remaining: {{slots.available}}/{{slots.total}}</span>
+        <span ng-show="game.finished">&ndash; Game over!</span>
+    </h1>
+    <div class="g   three-fifths">
+
+        <div class="game"></div>
+
+        <form ng-submit="submitWord()">
+            <label for="word">Type any available word in the grid:</label>
+            <input id="word" ng-model="word" type="text" placeholder="" class="text-input text-input--full" />
+        </form>
+    </div>
+
+    <div class="g   two-fifths">
+        <div ng-hide="game.finished">
+            <h2 class="gamma">Players</h2>
+            <ol>
+                <li ng-repeat="player in players | orderBy:playerScore:true">
+                    <img ng-src="{{getAvatar(player)}}" width="32" height="32" />
+                    {{player.username}} &ndash; {{player.score}}
+                </li>
+            </ol>
+        </div>
+        <div ng-show="game.finished">
+            <h2 class="gamma">Results</h2>
+            <p><b>{{game.winner.username}}</b> wins!</p>
+            <p>You may now <a href="" ng-click="leave()">return to the lobby</a>.</p>
+        </div>
+
+        <h2 class="gamma">Notifications</h2>
+        <ul class="secret-list">
+            <li ng-repeat="message in messages">
+                <img ng-src="{{getAvatar(message.user)}}" width="20" height="20" />
+                &lsquo;{{message.word.text}}&rsquo;
+                &ndash; {{message.points}} points
+                <span ng-show="message.combo > 1">(&times;{{message.combo}})</span>
+            </li>
+        </ul>
+    </div>
+</div>
